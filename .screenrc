@@ -13,8 +13,8 @@ hardstatus alwayslastline
 hardstatus string "%{+b by} %=[$LOGNAME@%H]-[%C %a]"
 
 # Some key binding
-bind ^j focus up
-bind ^k focus down
+bind ^j focus down
+bind ^k focus up
 bind \033 quit
 
 # Split 2 screens by default
