@@ -1,0 +1,45 @@
+alias cls='clear'
+alias cl='cls; ls -hl'
+alias cla='cl -a'
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+alias SimpleHTTPServer='python -m SimpleHTTPServer'
+alias lstodo='grep -Rn "TODO:"'
+
+# Shortcut for GUI Application
+alias st='stree'
+alias atm='atom -a'
+alias subl='subl3 -a'
+alias aatm='fasd -e "atom -a" -si'
+alias ssubl='fasd -e "subl3 -a" -si'
+
+# Aliases for git
+alias gs='git status'
+alias gd='git diff'
+alias glog='git log'
+alias gl='git lg'
+alias gb='git branch'
+alias gba='git branch -a'
+
+# alias fasd
+alias j=z
+alias jj=zz
+alias v='fasd -e vim -si'
+
+# alias for node.js (nvm lazy loading)
+alias lazy-node='echo -n "Loading node.js... " && \
+                 unalias nvm node npm lazy-node && \
+                 source $(brew --prefix nvm)/nvm.sh'
+alias nvm='echo -n "Loading nvm... " && \
+           unalias nvm node npm lazy-node && \
+           source $(brew --prefix nvm)/nvm.sh && \
+           nvm $@'
+alias node='echo -n "Loading node... " && \
+            unalias nvm node npm lazy-node && \
+            source $(brew --prefix nvm)/nvm.sh && \
+            node $@'
+alias npm='echo -n "Loading npm... " && \
+           unalias nvm node npm lazy-node && \
+           source $(brew --prefix nvm)/nvm.sh && \
+           npm $@'
