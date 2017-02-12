@@ -4,6 +4,9 @@ startup_message off
 # Define command characters
 escape ^kk
 
+# Define scrollback buffer
+defscrollback 10000
+
 # Define window caption
 caption always "%?%{kg}%-Lw%?%{r}%n*%f %t%?(%u)%?%?%{k}%+Lw%? %= "
 
