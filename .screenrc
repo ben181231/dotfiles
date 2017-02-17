@@ -8,7 +8,7 @@ escape ^kk
 defscrollback 10000
 
 # Define window caption
-caption always "%?%{kg}%-Lw%?%{r}%n*%f %t%?(%u)%?%?%{k}%+Lw%? %= "
+caption always "%?%{kg}%-Lw%?%{r}%n*%f %t%?(%u)%?%?%{k}%+Lw%? %= %{d}"
 
 # Show status line for whole screen
 hardstatus on
