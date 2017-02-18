@@ -20,9 +20,8 @@ bind ^j focus down
 bind ^k focus up
 bind \033 quit
 
-# Split 2 screens by default
+# Create 2 screens by default
 screen
-split
-focus
 screen
-focus
+select 0
+
