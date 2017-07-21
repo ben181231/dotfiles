@@ -27,19 +27,3 @@ alias j=z
 alias jj=zz
 alias v='fasd -e vim -si'
 
-# alias for node.js (nvm lazy loading)
-alias lazy-node='echo -n "Loading node.js... " && \
-                 unalias nvm node npm lazy-node && \
-                 source $(brew --prefix nvm)/nvm.sh'
-alias nvm='echo -n "Loading nvm... " && \
-           unalias nvm node npm lazy-node && \
-           source $(brew --prefix nvm)/nvm.sh && \
-           nvm $@'
-alias node='echo -n "Loading node... " && \
-            unalias nvm node npm lazy-node && \
-            source $(brew --prefix nvm)/nvm.sh && \
-            node $@'
-alias npm='echo -n "Loading npm... " && \
-           unalias nvm node npm lazy-node && \
-           source $(brew --prefix nvm)/nvm.sh && \
-           npm $@'

@@ -47,7 +47,7 @@ export UPDATE_ZSH_DAYS=30
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git hub nvm aws docker docker-compose)
+plugins=(git hub aws docker docker-compose)
 autoload -Uz compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
@@ -85,7 +85,6 @@ setopt NO_HUP
 # User configuration
 export GEM_HOME="$HOME/.gems"
 export GOPATH="$HOME/.go"
-export NVM_DIR="$HOME/.nvm"
 export PATH="$GOPATH/bin:$GEM_HOME/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin"
 export GPG_TTY=$(tty)
 
