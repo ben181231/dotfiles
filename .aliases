@@ -6,6 +6,8 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias SimpleHTTPServer='python -m SimpleHTTPServer'
 alias lstodo='grep -Rn "TODO:"'
+alias checkip='curl https://postman-echo.com/ip'
+
 
 # Shortcut for GUI Application
 alias st='stree'
