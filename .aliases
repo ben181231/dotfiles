@@ -15,6 +15,7 @@ alias atm='atom -a'
 alias subl='subl3 -a'
 alias aatm='fasd -e "atom -a" -si'
 alias ssubl='fasd -e "subl3 -a" -si'
+alias chrome='open -a "Google Chrome"'
 
 # Aliases for git
 alias gs='git status'
@@ -23,6 +24,7 @@ alias glog='git log'
 alias gl='git lg'
 alias gb='git branch'
 alias gba='git branch -a'
+alias gbtmp='git branch tmp-`date +$s`'
 
 # alias fasd
 alias j=z
