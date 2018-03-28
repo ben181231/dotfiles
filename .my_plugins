@@ -10,3 +10,8 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 # fasd
 eval "$(fasd --init auto)"
 
+# Minikube
+if [ $commands[minikube] ]; then
+  source <(minikube completion zsh)
+fi
+
