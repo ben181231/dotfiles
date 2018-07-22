@@ -28,6 +28,7 @@ alias gl='git lg'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gbtmp='git branch tmp-`date +%s`'
+alias gcotmp='git checkout -b tmp-`date +%s`'
 
 # alias fasd
 alias j=z
