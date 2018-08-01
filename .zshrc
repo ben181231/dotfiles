@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="bureau"
+ZSH_THEME="kardan"
 
 fpath=(~/.oh-my-zsh/custom/completions /usr/local/share/zsh/site-functions $fpath)
 
@@ -96,3 +96,4 @@ export GPG_TTY=$(tty)
 
 # allow background task stay after shell is killed
 setopt NO_HUP
+
