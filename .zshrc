@@ -94,6 +94,3 @@ export GPG_TTY=$(tty)
 # Add self-defined plugins
 [[ -e $HOME/.my_plugins ]] && . $HOME/.my_plugins
 
-# allow background task stay after shell is killed
-setopt NO_HUP
-
