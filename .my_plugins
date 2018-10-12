@@ -15,3 +15,7 @@ if [ $commands[minikube] ]; then
   source <(minikube completion zsh)
 fi
 
+# GCloud CLI
+if [ -f "$HOME/gcloud/path.zsh.inc" ]; then source "$HOME/gcloud/path.zsh.inc"; fi
+if [ -f "$HOME/gcloud/completion.zsh.inc" ]; then source "$HOME/gcloud/completion.zsh.inc"; fi
+
