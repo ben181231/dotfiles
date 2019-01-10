@@ -7,8 +7,17 @@ eval "$(hub alias -s)"
 # pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
+# direnv
+if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
+
 # fasd
-eval "$(fasd --init auto)"
+if which fasd > /dev/null; then eval "$(fasd --init auto)"; fi
+
+# php from brew
+export PATH="$(brew --prefix php)/bin:$PATH"
+
+# anyenv
+alias getanyenv='eval "$(anyenv init -)"'
 
 # Minikube
 if [ $commands[minikube] ]; then
@@ -16,6 +25,10 @@ if [ $commands[minikube] ]; then
 fi
 
 # GCloud CLI
+## Auto Completion
 if [ -f "$HOME/gcloud/path.zsh.inc" ]; then source "$HOME/gcloud/path.zsh.inc"; fi
 if [ -f "$HOME/gcloud/completion.zsh.inc" ]; then source "$HOME/gcloud/completion.zsh.inc"; fi
+
+## App Engine
+if [ -e "$HOME/gcloud/platform/google_appengine" ]; then PATH="$HOME/gcloud/platform/google_appengine:$PATH"; fi
 
