@@ -17,7 +17,7 @@ if which fasd > /dev/null; then eval "$(fasd --init auto)"; fi
 export PATH="$(brew --prefix php)/bin:$PATH"
 
 # anyenv
-alias getanyenv='eval "$(anyenv init -)"'
+if which anyenv > /dev/null; then alias getanyenv='eval "$(anyenv init -)"'; fi
 
 # Minikube
 if [ $commands[minikube] ]; then
