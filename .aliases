@@ -10,6 +10,7 @@ alias SimpleHTTPServerPython3='python -m http.server 2> /dev/null'
 alias SimpleHTTPServer='SimpleHTTPServerDocker || SimpleHTTPServerPython3 || SimpleHTTPServerPython2'
 alias lstodo='grep -Rn "TODO:"'
 alias checkip='curl https://postman-echo.com/ip'
+alias tmplay='_TMP_PLAYGROUND=$(date +%s) && mkdir "/tmp/playground-${_TMP_PLAYGROUND}" && cd "/tmp/playground-${_TMP_PLAYGROUND}" && unset _TMP_PLAYGROUND'
 
 
 # Shortcut for GUI Application
