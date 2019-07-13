@@ -85,7 +85,9 @@ setopt NO_HUP
 # User configuration
 export GEM_HOME="$HOME/.gems"
 export GOPATH="$HOME/.go"
-export PATH="$GOPATH/bin:$GEM_HOME/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin"
+export ICU_PATH="/usr/local/opt/icu4c/bin:/usr/local/opt/icu4c/sbin"
+export X11_HOME="/usr/X11"
+export PATH="$GOPATH/bin:$GEM_HOME/bin:$ICU_PATH:$X11_HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 export GPG_TTY=$(tty)
 
 # Load self-defined aliases

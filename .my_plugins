@@ -25,10 +25,12 @@ if [ $commands[minikube] ]; then
 fi
 
 # GCloud CLI
+export GCLOUD_HOME=$HOME/gcloud
+
 ## Auto Completion
-if [ -f "$HOME/gcloud/path.zsh.inc" ]; then source "$HOME/gcloud/path.zsh.inc"; fi
-if [ -f "$HOME/gcloud/completion.zsh.inc" ]; then source "$HOME/gcloud/completion.zsh.inc"; fi
+if [ -f "$GCLOUD_HOME/path.zsh.inc" ]; then source "$GCLOUD_HOME/path.zsh.inc"; fi
+if [ -f "$GCLOUD_HOME/completion.zsh.inc" ]; then source "$GCLOUD_HOME/completion.zsh.inc"; fi
 
 ## App Engine
-if [ -e "$HOME/gcloud/platform/google_appengine" ]; then PATH="$HOME/gcloud/platform/google_appengine:$PATH"; fi
+if [ -e "$GCLOUD_HOME/platform/google_appengine" ]; then PATH="$GCLOUD_HOME/platform/google_appengine:$PATH"; fi
 
