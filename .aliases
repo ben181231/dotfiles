@@ -4,14 +4,20 @@ alias cla='cl -a'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
-alias SimpleHTTPServerDocker='docker info 2> /dev/null > /dev/null && echo "Serving HTTP on port 8000..." && docker run --rm -v $PWD:/usr/share/nginx/html:ro -p 8000:80 nginx:alpine'
-alias SimpleHTTPServerPython2='python -m SimpleHTTPServer 2> /dev/null '
-alias SimpleHTTPServerPython3='python -m http.server 2> /dev/null'
-alias SimpleHTTPServer='SimpleHTTPServerDocker || SimpleHTTPServerPython3 || SimpleHTTPServerPython2'
+
 alias lstodo='grep -Rn "TODO:"'
 alias checkip='curl https://postman-echo.com/ip'
 alias tmplay='_TMP_PLAYGROUND=$(date +%s) && mkdir "/tmp/playground-${_TMP_PLAYGROUND}" && cd "/tmp/playground-${_TMP_PLAYGROUND}" && unset _TMP_PLAYGROUND'
 
+# Aliases for Docker
+alias dk='docker'
+alias dkc='docker-compose'
+
+# Aliases for SimpleHTTPServer
+alias SimpleHTTPServerDocker='docker info 2> /dev/null > /dev/null && echo "Serving HTTP on port 8000..." && docker run --rm -v $PWD:/usr/share/nginx/html:ro -p 8000:80 nginx:alpine'
+alias SimpleHTTPServerPython2='python -m SimpleHTTPServer 2> /dev/null '
+alias SimpleHTTPServerPython3='python -m http.server 2> /dev/null'
+alias SimpleHTTPServer='SimpleHTTPServerDocker || SimpleHTTPServerPython3 || SimpleHTTPServerPython2'
 
 # Shortcut for GUI Application
 alias st='stree'
