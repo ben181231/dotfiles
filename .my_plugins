@@ -7,11 +7,17 @@ eval "$(hub alias -s)"
 # pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
+# rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 # direnv
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 
 # fasd
 if which fasd > /dev/null; then eval "$(fasd --init auto)"; fi
+
+# deno
+if which deno > /dev/null; then export PATH=$HOME/.deno/bin:$PATH; fi
 
 # php from brew
 export PATH="$(brew --prefix php)/bin:$PATH"
@@ -25,12 +31,10 @@ if [ $commands[minikube] ]; then
 fi
 
 # GCloud CLI
-export GCLOUD_HOME=$HOME/gcloud
-
 ## Auto Completion
-if [ -f "$GCLOUD_HOME/path.zsh.inc" ]; then source "$GCLOUD_HOME/path.zsh.inc"; fi
-if [ -f "$GCLOUD_HOME/completion.zsh.inc" ]; then source "$GCLOUD_HOME/completion.zsh.inc"; fi
+if [ -f "$HOME/gcloud/path.zsh.inc" ]; then source "$HOME/gcloud/path.zsh.inc"; fi
+if [ -f "$HOME/gcloud/completion.zsh.inc" ]; then source "$HOME/gcloud/completion.zsh.inc"; fi
 
 ## App Engine
-if [ -e "$GCLOUD_HOME/platform/google_appengine" ]; then PATH="$GCLOUD_HOME/platform/google_appengine:$PATH"; fi
+if [ -e "$HOME/gcloud/platform/google_appengine" ]; then PATH="$HOME/gcloud/platform/google_appengine:$PATH"; fi
 
