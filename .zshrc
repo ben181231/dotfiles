@@ -83,6 +83,7 @@ export LANG=en_US.UTF-8
 setopt NO_HUP
 
 # User configuration
+export EDITOR="vim"
 export GEM_HOME="$HOME/.gems"
 export GOPATH="$HOME/.go"
 export ICU_PATH="/usr/local/opt/icu4c/bin:/usr/local/opt/icu4c/sbin"
