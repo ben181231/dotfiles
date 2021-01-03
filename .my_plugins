@@ -19,6 +19,9 @@ if which fasd > /dev/null; then eval "$(fasd --init auto)"; fi
 # deno
 if which deno > /dev/null; then export PATH=$HOME/.deno/bin:$PATH; fi
 
+# haskell stack
+if which stack > /dev/null; then eval "$(stack --bash-completion-script stack)"; fi
+
 # php from brew
 export PATH="$(brew --prefix php)/bin:$PATH"
 
