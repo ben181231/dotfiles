@@ -16,6 +16,9 @@ if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 # fasd
 if which fasd > /dev/null; then eval "$(fasd --init auto)"; fi
 
+# k3d
+if which k3d > /dev/null; then eval "$(k3d completion zsh)"; fi
+
 # deno
 if which deno > /dev/null; then export PATH=$HOME/.deno/bin:$PATH; fi
 
