@@ -41,11 +41,13 @@ if [ $commands[minikube] ]; then
   source <(minikube completion zsh)
 fi
 
-# GCloud CLI
-## Auto Completion
+# GCloud CLI Auto Completion
 if [ -f "$HOME/gcloud/path.zsh.inc" ]; then source "$HOME/gcloud/path.zsh.inc"; fi
 if [ -f "$HOME/gcloud/completion.zsh.inc" ]; then source "$HOME/gcloud/completion.zsh.inc"; fi
 
-## App Engine
+# App Engine
 if [ -e "$HOME/gcloud/platform/google_appengine" ]; then PATH="$HOME/gcloud/platform/google_appengine:$PATH"; fi
+
+# ghcup-env
+if [ -f "$HOME/.ghcup/env" ]; then source "$HOME/.ghcup/env"; fi
 
