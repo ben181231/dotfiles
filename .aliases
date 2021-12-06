@@ -9,6 +9,10 @@ alias lstodo='grep -Rn "TODO:"'
 alias checkip='curl https://postman-echo.com/ip'
 alias tmplay='_TMP_PLAYGROUND=$(date +%s) && mkdir "/tmp/playground-${_TMP_PLAYGROUND}" && cd "/tmp/playground-${_TMP_PLAYGROUND}" && unset _TMP_PLAYGROUND'
 
+# hist_disable & hist_enable
+alias hist_disable="function zshaddhistory() {  return 1 }"
+alias hist_enable="unset -f zshaddhistory"
+
 # Aliases for Docker
 alias dk='docker'
 alias dkc='docker-compose'
@@ -41,4 +45,3 @@ alias gcotmp='git checkout -b tmp-`date +%s`'
 alias j=z
 alias jj=zz
 alias v='fasd -e vim -si'
-
