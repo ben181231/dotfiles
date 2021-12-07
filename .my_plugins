@@ -1,6 +1,8 @@
 # homebrew
 if [[ -s "/opt/homebrew/bin/brew" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)";
+elif which brew > /dev/null; then
+  eval "$(brew shellenv)"
 fi
 
 # gitignore.io CLI
@@ -94,12 +96,12 @@ if [[ -s "$HOME/.ghcup/env" ]]; then
 fi
 
 #zsh-syntax-highlight
-if [[ -s "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
-  source "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
+if [[ -s "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+  source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
 fi
 
 #zsh-autosuggestions
-if [[ -s "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
+if [[ -s "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
   export ZSH_AUTOSUGGEST_STRATEGY=(completion history)
-  source "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh";
+  source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh";
 fi
