@@ -47,7 +47,7 @@ export UPDATE_ZSH_DAYS=30
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git github aws docker docker-compose kubectl yarn)
+plugins=(git github aws gh docker docker-compose kubectl yarn)
 autoload -Uz compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
