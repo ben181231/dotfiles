@@ -27,7 +27,7 @@ set textwidth=120
 set t_Co=256
 syntax on
 filetype plugin indent on
-colorscheme zellner
+colorscheme onedark
 
 " turn line numbers on
 set number
