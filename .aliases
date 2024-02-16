@@ -18,18 +18,11 @@ alias dk='docker'
 alias dkc='docker-compose'
 
 # Aliases for SimpleHTTPServer
+alias SimpleHTTPServerCaddy='which caddy > /dev/null && echo "Serving HTTP on port 8000..." && caddy file-server --browse --listen :8000 2> /dev/null'
 alias SimpleHTTPServerDocker='docker info 2> /dev/null > /dev/null && echo "Serving HTTP on port 8000..." && docker run --rm -v $PWD:/usr/share/nginx/html:ro -p 8000:80 nginx:alpine'
 alias SimpleHTTPServerPython2='python -m SimpleHTTPServer 2> /dev/null '
 alias SimpleHTTPServerPython3='python -m http.server 2> /dev/null'
-alias SimpleHTTPServer='SimpleHTTPServerDocker || SimpleHTTPServerPython3 || SimpleHTTPServerPython2'
-
-# Shortcut for GUI Application
-alias st='stree'
-alias atm='atom -a'
-alias subl='subl3 -a'
-alias aatm='fasd -e "atom -a" -si'
-alias ssubl='fasd -e "subl3 -a" -si'
-alias chrome='open -a "Google Chrome"'
+alias SimpleHTTPServer=SimpleHTTPServerCaddy
 
 # Aliases for git
 alias gs='git status'
@@ -41,7 +34,3 @@ alias gba='git branch -a'
 alias gbtmp='git branch tmp-`date +%s`'
 alias gcotmp='git checkout -b tmp-`date +%s`'
 
-# alias fasd
-alias j=z
-alias jj=zz
-alias v='fasd -e vim -si'
