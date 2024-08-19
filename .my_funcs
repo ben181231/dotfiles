@@ -1,0 +1,43 @@
+checkip() {
+  local cmd='curl -s https://postman-echo.com/ip'
+  if which jq > /dev/null; then
+    eval $cmd | jq -r '.ip'
+  else
+    eval $cmd | head -n 2 | tail -n 1 | awk '{print $2}'
+  fi
+}
+
+tmplay() {
+  local base_dir=${2:-/tmp}
+  local dir_name="playground-$(date +%s)"
+  if [[ -n "$1" && "$1" != "-" ]]; then
+    dir_name="playground-$1-$(date +%s)"
+  fi
+  local dir="${base_dir}/${dir_name}"
+  mkdir -p "${dir}" && cd "${dir}"
+}
+
+function gi() {
+  curl -L -s https://www.gitignore.io/api/$@ ;
+}
+
+function hist_stash() {
+  local file=$1
+  if [[ -z "${file}" ]]; then
+    file=$(mktemp /tmp/hist.XXXX)
+  fi
+  fc -p ${file}
+  echo ${file} | /usr/bin/tee /dev/fd/2 | pbcopy
+}
+
+function hist_fork() {
+  local file=$(mktemp /tmp/hist.XXXX)
+  if [[ -n "${HISTFILE}" ]] && [[ -s "${HISTFILE}" ]]; then
+    /usr/bin/tail -n 500 "${HISTFILE}" > "${file}"
+  fi
+  fc -p ${file}
+  echo ${file} | /usr/bin/tee /dev/fd/2 | pbcopy
+}
+
+alias hist_pop='fc -P'
+

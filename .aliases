@@ -6,8 +6,6 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 alias lstodo='grep -Rn "TODO:"'
-alias checkip='curl https://postman-echo.com/ip'
-alias tmplay='_TMP_PLAYGROUND=$(date +%s) && mkdir "/tmp/playground-${_TMP_PLAYGROUND}" && cd "/tmp/playground-${_TMP_PLAYGROUND}" && unset _TMP_PLAYGROUND'
 
 # hist_disable & hist_enable
 alias hist_disable="function zshaddhistory() {  return 1 }"

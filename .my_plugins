@@ -4,30 +4,6 @@ if [[ -s "/opt/homebrew/bin/brew" ]]; then
   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 fi
 
-# gitignore.io CLI
-function gi() {
-  curl -L -s https://www.gitignore.io/api/$@ ;
-}
-
-# hist_stash, hist_fork & hist_pop
-function hist_stash() {
-  local file=$1
-  if [[ -z "${file}" ]]; then
-    file=$(mktemp /tmp/hist.XXXX)
-  fi
-  fc -p ${file}
-  echo ${file} | /usr/bin/tee /dev/fd/2 | pbcopy
-}
-function hist_fork() {
-  local file=$(mktemp /tmp/hist.XXXX)
-  if [[ -n "${HISTFILE}" ]] && [[ -s "${HISTFILE}" ]]; then
-    /usr/bin/tail -n 500 "${HISTFILE}" > "${file}"
-  fi
-  fc -p ${file}
-  echo ${file} | /usr/bin/tee /dev/fd/2 | pbcopy
-}
-alias hist_pop='fc -P'
-
 # hub CLI
 if which hub > /dev/null; then
   eval "$(hub alias -s)";
@@ -85,11 +61,6 @@ if which anyenv > /dev/null; then
   alias getanyenv='eval "$(anyenv init -)"';
 fi
 
-# Minikube
-if [[ $commands[minikube] ]]; then
-  source <(minikube completion zsh)
-fi
-
 # GCloud CLI Auto Completion
 if [[ -s "$HOME/gcloud/path.zsh.inc" ]]; then
   source "$HOME/gcloud/path.zsh.inc";
@@ -119,10 +90,14 @@ if [[ -s "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]
   source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh";
 fi
 
-#mega-cmd
-if [[ -e "/Applications/MEGAcmd.app" ]]; then
-  export PATH=/Applications/MEGAcmd.app/Contents/MacOS:$PATH
-  source /Applications/MEGAcmd.app/Contents/MacOS/megacmd_completion.sh
+# merknife
+if which merknife > /dev/null; then
+  eval "$(merknife completion zsh)";
+fi
+
+# fzf
+if which fzf > /dev/null; then
+  source <(fzf --zsh)
 fi
 
 # zoxide

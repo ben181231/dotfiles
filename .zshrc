@@ -89,11 +89,14 @@ export GEM_HOME="$HOME/.gems"
 export GOPATH="$HOME/.go"
 export ICU_PATH="/usr/local/opt/icu4c/bin:/usr/local/opt/icu4c/sbin"
 export X11_HOME="/usr/X11"
-export PATH="$GOPATH/bin:$GEM_HOME/bin:$ICU_PATH:$X11_HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+export PATH="$GOPATH/bin:$GEM_HOME/bin:$ICU_PATH:$X11_HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 export GPG_TTY=$(tty)
 
 # Load self-defined aliases
 [[ -e $HOME/.aliases ]] && . $HOME/.aliases
+
+# Load self-defined functions
+[[ -e $HOME/.my_funcs ]] && . $HOME/.my_funcs
 
 # Add self-defined plugins
 [[ -e $HOME/.my_plugins ]] && . $HOME/.my_plugins
