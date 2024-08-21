@@ -13,7 +13,7 @@ alias hist_enable="unset -f zshaddhistory"
 
 # Aliases for Docker
 alias dk='docker'
-alias dkc='docker-compose'
+alias dkc='docker compose'
 
 # Aliases for SimpleHTTPServer
 alias SimpleHTTPServerCaddy='which caddy > /dev/null && echo "Serving HTTP on port 8000..." && caddy file-server --browse --listen :8000 2> /dev/null'
