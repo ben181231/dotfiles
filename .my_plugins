@@ -71,7 +71,7 @@ fi
 
 # App Engine
 if [[ -e "$HOME/gcloud/platform/google_appengine" ]]; then
-  PATH="$HOME/gcloud/platform/google_appengine:$PATH";
+  export PATH="$HOME/gcloud/platform/google_appengine:$PATH";
 fi
 
 # ghcup-env
@@ -104,3 +104,17 @@ fi
 if which zoxide > /dev/null; then
   eval "$(zoxide init zsh --cmd j)";
 fi
+
+# chatgpt-cli
+if [[ -s "$HOMEBREW_PREFIX/bin/chatgpt" ]]; then
+  if alias chatgpt &> /dev/null; then
+    unalias chatgpt
+  fi
+
+  mkdir -p $HOME/.chatgpt-cli/history
+  export OPENAI_CONFIG_HOME=$HOME/.chatgpt-cli
+  export OPENAI_DATA_HOME=$HOME/.chatgpt-cli/history
+
+  eval "$(chatgpt --set-completions zsh)"
+fi
+
