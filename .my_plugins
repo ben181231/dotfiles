@@ -18,12 +18,13 @@ if which pyenv > /dev/null; then
 fi
 
 # nvm
-export NVM_DIR="$HOME/.nvm"
-if [[ -s "/usr/local/opt/nvm/nvm.sh" ]]; then
-  source "/usr/local/opt/nvm/nvm.sh";
+if [[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ]]; then
+  source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh";
+  export NVM_DIR="$HOME/.nvm";
+  mkdir -p $NVM_DIR;
 fi
-if [[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ]]; then
-  source "/usr/local/opt/nvm/etc/bash_completion.d/nvm";
+if [[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ]]; then
+  source "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm";
 fi
 
 # nodenv
@@ -103,6 +104,12 @@ fi
 # zoxide
 if which zoxide > /dev/null; then
   eval "$(zoxide init zsh --cmd j)";
+fi
+
+# beyond-cli
+if which beyond > /dev/null; then
+  source <(beyond completion zsh);
+  compdef _beyond beyond;
 fi
 
 # chatgpt-cli

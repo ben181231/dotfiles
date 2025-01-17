@@ -49,6 +49,7 @@ export UPDATE_ZSH_DAYS=30
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(\
     aws \
+    bazel \
     docker \
     gh \
     git \
