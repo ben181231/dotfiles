@@ -55,7 +55,6 @@ plugins=(\
     git \
     github \
     kubectl \
-    web-search\
     yarn \
 )
 autoload -Uz compinit && compinit

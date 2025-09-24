@@ -125,3 +125,25 @@ if [[ -s "$HOMEBREW_PREFIX/bin/chatgpt" ]]; then
   eval "$(chatgpt --set-completions zsh)"
 fi
 
+# OpenJDK
+if [[ -d "$HOMEBREW_PREFIX/opt/openjdk/bin" ]]; then
+  export PATH="$HOMEBREW_PREFIX/opt/openjdk/bin:$PATH"
+fi
+
+# kind
+if [[ -s $HOMEBREW_PREFIX/bin/kind ]]; then
+  eval "$(kind completion zsh)"
+fi
+
+# aqua
+if which aqua > /dev/null; then
+  export PATH="$(aqua root-dir)/bin:$PATH"
+  eval "$(aqua completion zsh)";
+fi
+
+# 1Password CLI
+if which op > /dev/null; then
+  eval "$(op completion zsh)";
+  compdef _op op;
+fi
+

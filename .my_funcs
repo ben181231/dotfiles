@@ -41,3 +41,8 @@ function hist_fork() {
 
 alias hist_pop='fc -P'
 
+alias jj='interactive_cd'
+function interactive_cd() {
+  cd $(zoxide query -i $@)
+}
+
