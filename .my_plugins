@@ -30,6 +30,9 @@ fi
 # nodenv
 if which nodenv > /dev/null; then
   eval "$(nodenv init -)"
+  FPATH="$HOMEBREW_PREFIX/opt/nodenv/completions:$FPATH"
+  autoload -U compinit
+  compinit
 fi
 
 # rbenv
@@ -62,17 +65,23 @@ if which anyenv > /dev/null; then
   alias getanyenv='eval "$(anyenv init -)"';
 fi
 
-# GCloud CLI Auto Completion
-if [[ -s "$HOME/gcloud/path.zsh.inc" ]]; then
-  source "$HOME/gcloud/path.zsh.inc";
+# Suppport gcloud from homebrew
+GCLOUD_CLI_PATH="$HOME/gcloud"
+if [[ -d "$(brew --prefix)/Caskroom/gcloud-cli/latest/google-cloud-sdk" ]]; then
+  GCLOUD_CLI_PATH="$(brew --prefix)/Caskroom/gcloud-cli/latest/google-cloud-sdk"
 fi
-if [[ -s "$HOME/gcloud/completion.zsh.inc" ]]; then
-  source "$HOME/gcloud/completion.zsh.inc";
+
+# GCloud CLI Auto Completion
+if [[ -s "$GCLOUD_CLI_PATH/path.zsh.inc" ]]; then
+  source "$GCLOUD_CLI_PATH/path.zsh.inc";
+fi
+if [[ -s "$GCLOUD_CLI_PATH/completion.zsh.inc" ]]; then
+  source "$GCLOUD_CLI_PATH/completion.zsh.inc";
 fi
 
 # App Engine
-if [[ -e "$HOME/gcloud/platform/google_appengine" ]]; then
-  export PATH="$HOME/gcloud/platform/google_appengine:$PATH";
+if [[ -e "$GCLOUD_CLI_PATH/platform/google_appengine" ]]; then
+  export PATH="$GCLOUD_CLI_PATH/platform/google_appengine:$PATH";
 fi
 
 # ghcup-env
@@ -131,7 +140,7 @@ if [[ -d "$HOMEBREW_PREFIX/opt/openjdk/bin" ]]; then
 fi
 
 # kind
-if [[ -s $HOMEBREW_PREFIX/bin/kind ]]; then
+if [[ -s "$HOMEBREW_PREFIX/bin/kind" ]]; then
   eval "$(kind completion zsh)"
 fi
 
@@ -145,5 +154,16 @@ fi
 if which op > /dev/null; then
   eval "$(op completion zsh)";
   compdef _op op;
+fi
+
+# OpenCode
+if which opencode > /dev/null; then
+  eval "$(opencode completion)";
+fi
+
+# Sourcegraph CLI
+if which jq > /dev/null && which src > /dev/null && [[ -r "$HOME/.config/sourcegraph/config.json" ]]; then
+  export SRC_ENDPOINT=$(jq -r '.endpoint' ~/.config/sourcegraph/config.json)
+  export SRC_ACCESS_TOKEN=$(jq -r '.accessToken' ~/.config/sourcegraph/config.json)
 fi
 

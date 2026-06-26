@@ -8,6 +8,7 @@ alias rm='rm -i'
 alias lstodo='grep -Rn "TODO:"'
 alias 3cal='cal -3'
 alias c='cursor'
+alias oc='opencode'
 alias tt='tree -L 1 /tmp/playground-*'
 
 # hist_disable & hist_enable

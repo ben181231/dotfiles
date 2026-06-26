@@ -9,7 +9,7 @@ checkip() {
 
 tmplay() {
   local base_dir=${2:-/tmp}
-  local dir_name="playground-$(date +%s)"
+  local dir_name="playground-$(date +%Y%m%d%H%M%S)"
   if [[ -n "$1" && "$1" != "-" ]]; then
     dir_name="playground-$1-$(date +%s)"
   fi
@@ -41,8 +41,17 @@ function hist_fork() {
 
 alias hist_pop='fc -P'
 
-alias jj='interactive_cd'
-function interactive_cd() {
-  cd $(zoxide query -i $@)
+alias oi='interactive_open'
+function interactive_open() {
+  local cmd=()
+  while [[ $# -gt 0 && "$1" != "--" ]]; do
+    cmd+=("$1")
+    shift
+  done
+  [[ "$1" == "--" ]] && shift  # drop the separator
+
+  local dir
+  dir=$(zoxide query -i -- "$@") || return  # abort if nothing selected
+  "${cmd[@]}" "$dir"
 }
 
